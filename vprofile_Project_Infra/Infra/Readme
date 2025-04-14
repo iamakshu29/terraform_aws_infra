@@ -1,0 +1,52 @@
+I am setting up Multiple Instance Infrastructure using Terraform Iac for Multi-VM Project
+
+Provider
+aws : us-east-1
+
+CPU Type, OS, Security Groups and their Inbound Rules for 5 Instance, I am creating are :
+
+Nginx	
+    t2.micro
+    Ubuntu 22.04 LTS
+    Allow HTTP (80), HTTPS (443), SSH (22) from anywhere.
+    Acts as a reverse proxy; low CPU/memory usage.
+
+Apache Tomcat	
+    t2.small
+    Ubuntu 22.04 LTS
+    Allow 8080 (for web apps) from Nginx only, SSH (22) from trusted IPs.
+    Requires more resources for Java applications.
+
+MySQL	
+    t3.small
+    Amazon Linux 2
+    Allow 3306 from Tomcat/RabbitMQ only, SSH (22) from trusted IPs.
+    Needs higher RAM & storage for database performance.
+
+RabbitMQ	
+    t2.micro
+    Ubuntu 22.04 LTS
+    Allow 5672 (AMQP) and 15672 (management UI) from Tomcat, SSH (22) from trusted IPs.
+    Lightweight message broker; low CPU/memory needs.
+
+Memcached
+    t2.micro
+    Ubuntu 22.04 LTS
+    Allow 11211 (Memcached) from Tomcat/RabbitMQ only, SSH (22) from trusted IPs.
+    Caching service; low memory footprint.
+
+
+ssh-keygen pair
+name: terr_rev
+
+
+I created 2 folder
+1 infra -> which containe the infrastructure for project 5 ec2 Isntance, 5 SG, 1 key pair
+2 Backend_resources -> this contains S3 and dynamodb ...which is required for abckend statefile and state locking to prevent interference from multiple users.
+
+
+Now to created an
+cd infra
+terraform plan
+terraform apply
+

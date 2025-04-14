@@ -1,0 +1,20 @@
+# Ignore Keys
+*.pub
+*.pem
+**/.terraform/
+
+1.Getting the AMI_ID/.terraform
+
+2.Creating an EC2 Instance/.terraform
+2.Creating an EC2 Instance/terraform_key
+
+3.Creating ASG,EC2,ELB/.terraform
+3.Creating ASG,EC2,ELB/elb_key
+
+Revision Terraform using Modules/terr_rev
+Revision Terraform using Modules/terraform_revision_accessKeys.csv
+Revision Terraform using Modules/.terraform
+
+vprofile_Project_Infra/Infra/terraform_revision_accessKeys.csv
+vprofile_Project_Infra/Backend_Resources/.terraform
+vprofile_Project_Infra/Infra/.terraform
