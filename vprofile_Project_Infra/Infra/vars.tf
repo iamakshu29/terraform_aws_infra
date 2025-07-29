@@ -1,5 +1,5 @@
 variable "myIP" {
-  description = "MySQL AMI ID"
+  description = "My IP"
   type = string
 }
 

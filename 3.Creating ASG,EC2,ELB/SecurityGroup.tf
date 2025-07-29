@@ -1,7 +1,7 @@
 resource "aws_security_group" "ec2_sg" {
   name        = "ec2_sg"
   description = "Allow at 22 and 80 in inbound traffic and all outbound traffic"
-  vpc_id      = data.aws_vpc.default.id
+  vpc_id      = data.aws_vpc.default_id.id
   tags = {
     Name = "allow_22_80_ec2"
   }
